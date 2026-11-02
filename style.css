@@ -1,92 +1,173 @@
 
-
-/* =========================
-   KAIBOON - IDENTIDADE VISUAL
-========================= */
-
 :root {
   --red: #c62828;
-  --dark-red: #9f1717;
+  --dark-red: #941b1b;
   --orange: #f28c28;
   --white: #ffffff;
   --black: #242424;
   --gray: #777777;
   --light: #fff5f2;
+  --border: #eeeeee;
+  --sidebar-width: 260px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 body {
   font-family: Arial, sans-serif;
-  background: var(--white);
+  background: #fafafa;
   color: var(--black);
 }
 
 a {
+  color: inherit;
   text-decoration: none;
 }
 
-/* CABEÇALHO */
-
-.topbar {
-  min-height: 78px;
-  padding: 15px 7%;
-  background: var(--red);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
+button {
+  font: inherit;
+  cursor: pointer;
 }
 
-.logo {
-  color: var(--white);
+/* ESTRUTURA PRINCIPAL */
+
+.app-layout {
+  min-height: 100vh;
+}
+
+/* MENU LATERAL */
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  padding: 25px 16px;
+  z-index: 100;
+}
+
+.sidebar .logo {
+  display: block;
+  padding: 8px 12px 30px;
+  color: var(--red);
   font-size: 27px;
   font-weight: 900;
   letter-spacing: 1px;
 }
 
-.logo span {
+.sidebar .logo span {
   color: var(--orange);
 }
 
-.topbar nav {
+.sidebar nav {
   display: flex;
-  gap: 28px;
+  flex-direction: column;
+  gap: 7px;
 }
 
-.topbar nav a {
-  color: var(--white);
+.sidebar nav button {
+  width: 100%;
+  padding: 13px 15px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #555;
+  text-align: left;
   font-size: 14px;
+  transition: 0.2s;
+}
+
+.sidebar nav button:hover {
+  background: var(--light);
+  color: var(--red);
+}
+
+.sidebar nav button.active {
+  background: #ffebeb;
+  color: var(--red);
   font-weight: bold;
 }
 
-.header-button {
-  background: var(--orange);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-weight: bold;
+/* CONTEÚDO PRINCIPAL */
+
+.main-content {
+  min-height: 100vh;
+  margin-left: var(--sidebar-width);
+}
+
+/* BARRA SUPERIOR */
+
+.topbar {
+  min-height: 72px;
+  padding: 18px 4%;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.topbar h2 {
+  font-size: 17px;
+}
+
+.topbar p {
+  color: var(--gray);
+  font-size: 13px;
+}
+
+/* ÁREA DAS PÁGINAS */
+
+#page-content {
+  padding: 35px 4%;
+}
+
+.page {
+  display: none;
+  animation: pageEnter 0.25s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* APRESENTAÇÃO */
 
 .hero {
-  min-height: 490px;
-  padding: 80px 9%;
+  min-height: 390px;
+  padding: 55px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 50px;
+  gap: 35px;
   background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 5px 20px #00000008;
 }
 
 .hero-content {
-  max-width: 570px;
+  max-width: 600px;
 }
 
 .tag {
@@ -97,9 +178,9 @@ a {
 }
 
 .hero h1 {
-  font-size: clamp(35px, 5vw, 55px);
-  margin: 22px 0;
-  line-height: 1.12;
+  margin: 18px 0;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.15;
 }
 
 .hero h1 span {
@@ -107,237 +188,330 @@ a {
 }
 
 .hero-content p {
+  margin-bottom: 25px;
   color: var(--gray);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.7;
-  margin-bottom: 30px;
 }
 
 .main-button {
   display: inline-block;
+  padding: 14px 23px;
   background: var(--red);
-  color: white;
-  padding: 15px 25px;
-  border-radius: 8px;
+  color: var(--white);
+  border-radius: 9px;
   font-weight: bold;
   transition: 0.2s;
 }
 
 .main-button:hover {
   background: var(--dark-red);
+  transform: translateY(-2px);
 }
 
 /* ESPAÇO DO MASCOTE */
 
 .mascot-area {
-  width: 350px;
-  min-height: 300px;
+  width: 280px;
+  min-height: 250px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--light);
-  border-radius: 25px;
   border: 2px dashed #efb2a9;
+  border-radius: 22px;
 }
 
 .mascot-placeholder {
+  padding: 25px;
   text-align: center;
   color: var(--red);
-  padding: 30px;
 }
 
 .mascot-placeholder span {
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 900;
 }
 
 .mascot-placeholder p {
-  margin-top: 12px;
+  margin-top: 10px;
   color: var(--gray);
+  font-size: 13px;
+  line-height: 1.5;
 }
 
-/* SERVIÇOS */
-
-.services {
-  padding: 85px 8%;
-  background: #fff8f5;
-}
+/* TÍTULOS DE SEÇÃO */
 
 .section-heading {
-  text-align: center;
-  margin-bottom: 45px;
+  margin: 45px 0 25px;
 }
 
 .section-heading span {
   color: var(--orange);
-  font-weight: bold;
   font-size: 12px;
+  font-weight: bold;
   letter-spacing: 2px;
 }
 
 .section-heading h2 {
-  font-size: 35px;
-  margin: 12px 0;
+  margin: 10px 0;
+  font-size: 29px;
 }
 
 .section-heading p {
   color: var(--gray);
+  line-height: 1.6;
 }
+
+/* CARDS DE SERVIÇOS */
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
 .service-card {
-  background: white;
-  padding: 28px 22px;
-  border-radius: 14px;
-  border: 1px solid #eeeeee;
+  padding: 27px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 15px;
   box-shadow: 0 5px 18px #00000008;
   transition: 0.2s;
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: 0 10px 25px #00000012;
 }
 
 .service-icon {
-  width: 55px;
-  height: 55px;
-  border-radius: 14px;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
-  margin-bottom: 22px;
-}
-
-.service-card.red .service-icon {
-  color: var(--red);
   background: #ffebeb;
+  color: var(--red);
+  border-radius: 13px;
+  font-size: 25px;
 }
 
 .service-card.orange .service-icon {
-  color: #d96c0c;
   background: #fff0df;
+  color: #d96c0c;
 }
 
 .service-card h3 {
-  font-size: 19px;
   margin-bottom: 12px;
+  font-size: 19px;
 }
 
 .service-card p {
   color: var(--gray);
   font-size: 14px;
-  line-height: 1.6;
-  min-height: 68px;
+  line-height: 1.7;
 }
 
 .service-card a {
   display: inline-block;
+  margin-top: 18px;
   color: var(--red);
   font-size: 13px;
   font-weight: bold;
-  margin-top: 20px;
 }
 
-/* SOBRE */
+/* CONTEÚDO INTERNO DAS PÁGINAS */
 
-.about {
-  padding: 75px 9%;
-  text-align: center;
-}
-
-.about h2,
-.contact h2 {
-  font-size: 32px;
+.page h1 {
   margin-bottom: 18px;
+  font-size: 34px;
 }
 
-.about p,
-.contact p {
+.page h2 {
+  margin: 28px 0 14px;
+  font-size: 23px;
+}
+
+.page p {
   color: var(--gray);
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
-/* CONTATO */
+.page ul {
+  margin: 18px 0 18px 22px;
+  color: var(--gray);
+  line-height: 1.9;
+}
+
+.info-card {
+  margin-top: 22px;
+  padding: 25px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--red);
+  border-radius: 12px;
+}
+
+/* ETAPAS DO SERVIÇO */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.step-card {
+  padding: 22px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+}
+
+.step-card span {
+  color: var(--orange);
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.step-card h3 {
+  margin: 10px 0;
+  font-size: 17px;
+}
+
+/* PREÇOS */
+
+.price-card {
+  margin-top: 25px;
+  padding: 25px;
+  background: var(--light);
+  border-radius: 14px;
+}
+
+.price-card strong {
+  display: block;
+  margin-top: 10px;
+  color: var(--red);
+  font-size: 24px;
+}
+
+/* SOBRE E CONTATO */
+
+.about,
+.contact {
+  padding: 35px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+}
 
 .contact {
-  padding: 70px 20px;
-  text-align: center;
+  margin-top: 25px;
   background: #fff0e4;
+  text-align: center;
 }
 
 .contact a {
   display: inline-block;
-  margin-top: 22px;
-  padding: 14px 23px;
-  color: white;
+  margin-top: 20px;
+  padding: 13px 22px;
   background: var(--orange);
+  color: var(--white);
   border-radius: 8px;
   font-weight: bold;
 }
 
 /* RODAPÉ */
 
-footer {
+.site-footer {
+  margin-left: var(--sidebar-width);
+  padding: 25px 4%;
   background: var(--dark-red);
-  color: white;
-  padding: 35px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-footer p {
+  color: var(--white);
   font-size: 13px;
 }
 
-/* CELULARES E TABLETS */
+/* TABLETS */
 
-@media (max-width: 900px) {
-  .service-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 950px) {
+  :root {
+    --sidebar-width: 220px;
   }
 
   .hero {
-    padding: 60px 7%;
+    padding: 35px;
+  }
+
+  .mascot-area {
+    width: 220px;
   }
 }
 
-@media (max-width: 600px) {
-  .topbar {
-    flex-wrap: wrap;
-    justify-content: center;
+/* CELULARES */
+
+@media (max-width: 700px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
   }
 
-  .topbar nav {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
+  .sidebar .logo {
+    padding: 8px 10px 18px;
+  }
+
+  .sidebar nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sidebar nav button {
+    font-size: 12px;
+    padding: 11px;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  #page-content {
+    padding: 22px 16px;
+  }
+
+  .topbar {
+    min-height: 60px;
+    padding: 15px 20px;
   }
 
   .hero {
     flex-direction: column;
+    padding: 30px 20px;
     text-align: center;
   }
 
   .mascot-area {
     width: 100%;
+    min-height: 200px;
   }
 
-  .service-grid {
+  .service-grid,
+  .steps {
     grid-template-columns: 1fr;
   }
 
-  footer {
-    flex-direction: column;
+  .page h1 {
+    font-size: 28px;
+  }
+
+  .site-footer {
+    margin-left: 0;
     text-align: center;
   }
 }
+
