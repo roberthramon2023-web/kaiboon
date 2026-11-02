@@ -1,1 +1,13 @@
-
+.menu-group{margin-bottom:24px}
+.menu-title{display:block;margin:0 12px 9px;color:#999;font-size:10px;font-weight:800;letter-spacing:1.5px}
+.sidebar .menu-link{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;margin-bottom:5px;border:0;border-radius:10px;background:transparent;color:var(--gray);text-align:left;font-size:13px;font-weight:600;transition:.2s}
+.sidebar .menu-link:hover,.sidebar .menu-link.active{background:#ffe5e8;color:var(--red)}
+.sidebar .menu-link.active{font-weight:800}
+.menu-link span{font-size:18px}
+.sidebar-footer{margin-top:30px;padding:15px 10px;border-top:1px solid var(--border);color:var(--gray);font-size:11px}
+.info-panel{margin-top:24px;padding:26px;background:var(--white);border:1px solid var(--border);border-left:4px solid var(--red);border-radius:14px;box-shadow:var(--shadow)}
+.info-panel h2{margin-top:0;color:var(--dark-red)}
+.steps article{padding:22px;background:var(--white);border:1px solid var(--border);border-radius:13px;box-shadow:var(--shadow)}
+button.service-card{width:100%;color:var(--black);font-family:inherit;text-align:left}
+.site-footer{margin-left:0}
+@media(max-width:700px){.menu-group{margin-bottom:14px}.info-panel{padding:19px}}
