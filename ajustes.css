@@ -1,13 +1,132 @@
-.menu-group{margin-bottom:24px}
-.menu-title{display:block;margin:0 12px 9px;color:#999;font-size:10px;font-weight:800;letter-spacing:1.5px}
-.sidebar .menu-link{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;margin-bottom:5px;border:0;border-radius:10px;background:transparent;color:var(--gray);text-align:left;font-size:13px;font-weight:600;transition:.2s}
-.sidebar .menu-link:hover,.sidebar .menu-link.active{background:#ffe5e8;color:var(--red)}
-.sidebar .menu-link.active{font-weight:800}
-.menu-link span{font-size:18px}
-.sidebar-footer{margin-top:30px;padding:15px 10px;border-top:1px solid var(--border);color:var(--gray);font-size:11px}
-.info-panel{margin-top:24px;padding:26px;background:var(--white);border:1px solid var(--border);border-left:4px solid var(--red);border-radius:14px;box-shadow:var(--shadow)}
-.info-panel h2{margin-top:0;color:var(--dark-red)}
-.steps article{padding:22px;background:var(--white);border:1px solid var(--border);border-radius:13px;box-shadow:var(--shadow)}
-button.service-card{width:100%;color:var(--black);font-family:inherit;text-align:left}
-.site-footer{margin-left:0}
-@media(max-width:700px){.menu-group{margin-bottom:14px}.info-panel{padding:19px}}
+/* ==================================
+   UNIVERSO DO AUTOR — KUROGAMA
+================================== */
+
+.kurogama-hero {
+  display: grid;
+  grid-template-columns: minmax(220px, .85fr) 1.15fr;
+  gap: 38px;
+  align-items: center;
+  margin: 28px 0 65px;
+}
+
+.kurogama-cover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #17131f;
+  box-shadow: 0 15px 40px rgba(0,0,0,.16);
+}
+
+.kurogama-cover img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.cover-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 13px;
+  background: rgba(20,15,30,.88);
+  color: #fff;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.kurogama-intro h1 {
+  margin: 12px 0;
+  font-size: clamp(38px,6vw,64px);
+  letter-spacing: 3px;
+}
+
+.kurogama-intro h2 {
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.kurogama-intro p {
+  line-height: 1.8;
+  color: var(--gray);
+}
+
+.kurogama-eyebrow,
+.kurogama-heading > span {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.kurogama-heading {
+  margin: 55px 0 25px;
+}
+
+.kurogama-heading h2 {
+  margin: 10px 0;
+}
+
+.kurogama-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 16px;
+}
+
+.kurogama-card {
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.kurogama-card > span {
+  color: var(--red);
+  font-weight: 900;
+}
+
+.kurogama-card p {
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+.kurogama-ending {
+  margin-top: 35px;
+  padding: 30px;
+  border-radius: 16px;
+  background: #211827;
+  color: #fff;
+}
+
+.kurogama-ending p {
+  line-height: 1.8;
+  color: #e0d9e5;
+}
+
+.kurogama-ending a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #ff9b70;
+  font-weight: 800;
+}
+
+@media(max-width:700px) {
+  .kurogama-hero {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .kurogama-cover {
+    max-width: 380px;
+    margin: auto;
+  }
+
+  .kurogama-grid {
+    grid-template-columns: 1fr;
+  }
+}
