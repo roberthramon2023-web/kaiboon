@@ -4,119 +4,251 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="KAIBOON - Assistentes virtuais e soluções inteligentes para empresas.">
-  <title>KAIBOON | Inteligência Artificial</title>
+  <meta name="description" content="KAIBOON — Assistentes virtuais e soluções inteligentes para empresas.">
+  <title>KAIBOON | Plataforma de soluções inteligentes</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <header class="topbar">
-    <a href="#" class="logo">KAIBOON<span>.</span></a>
+  <div class="app-layout">
 
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
-    </nav>
-
-    <a href="#contato" class="header-button">Começar agora</a>
-  </header>
-
-  <main>
-
-    <section class="hero" id="inicio">
-      <div class="hero-content">
-        <span class="tag">TECNOLOGIA E INTELIGÊNCIA ARTIFICIAL</span>
-
-        <h1>
-          O futuro do atendimento começa com a
-          <span>KAIBOON.</span>
-        </h1>
-
-        <p>
-          Criamos assistentes virtuais inteligentes,
-          automações e soluções personalizadas
-          para empresas.
-        </p>
-
-        <a href="#servicos" class="main-button">
-          Conhecer serviços
-        </a>
-      </div>
-
-      <div class="mascot-area">
-        <img
-          src="ativos/mascote-kaiboon.png"
-          alt="Mascote da KAIBOON"
-          class="mascot-image"
-        >
-      </div>
-    </section>
-
-    <section class="services" id="servicos">
-      <div class="section-heading">
-        <span>NOSSAS SOLUÇÕES</span>
-        <h2>KAIBOON — Serviços</h2>
-        <p>Tecnologia pensada para facilitar o seu negócio.</p>
-      </div>
-
-      <div class="service-grid">
-
-        <article class="service-card red">
-          <div class="service-icon">✦</div>
-          <h3>Assistentes virtuais</h3>
-          <p>Assistentes com IA para conversar e ajudar seus clientes.</p>
-          <a href="#contato">Conhecer serviço →</a>
-        </article>
-
-        <article class="service-card orange">
-          <div class="service-icon">⚔</div>
-          <h3>Atendimento inteligente</h3>
-          <p>Uma experiência de atendimento mais organizada e eficiente.</p>
-          <a href="#contato">Conhecer serviço →</a>
-        </article>
-
-        <article class="service-card red">
-          <div class="service-icon">⬡</div>
-          <h3>Automação</h3>
-          <p>Soluções para simplificar tarefas e processos.</p>
-          <a href="#contato">Conhecer serviço →</a>
-        </article>
-
-        <article class="service-card orange">
-          <div class="service-icon">◇</div>
-          <h3>Soluções personalizadas</h3>
-          <p>Projetos desenvolvidos conforme as necessidades de cada empresa.</p>
-          <a href="#contato">Conhecer serviço →</a>
-        </article>
-
-      </div>
-    </section>
-
-    <section class="about" id="sobre">
-      <h2>Conheça a KAIBOON</h2>
-      <p>
-        Nosso objetivo é aproximar empresas das possibilidades
-        da inteligência artificial.
-      </p>
-    </section>
-
-    <section class="contact" id="contato">
-      <h2>Vamos conversar?</h2>
-      <p>Entre em contato para conhecer nossas soluções.</p>
-      <a href="https://www.instagram.com/grimoire.zx/" target="_blank" rel="noopener noreferrer">
-        Fale conosco pelo Instagram
+    <aside class="sidebar">
+      <a href="#" class="logo">
+        <span class="logo-symbol">K</span>
+        KAIBOON<span class="logo-dot">.</span>
       </a>
-    </section>
 
-  </main>
+      <div class="menu-group">
+        <span class="menu-title">PRINCIPAL</span>
+        <button class="menu-link active" data-page="inicio">
+          <span>⌂</span> Início
+        </button>
+      </div>
 
-  <footer>
-    <a href="#" class="logo">KAIBOON<span>.</span></a>
-    <p>© 2026 KAIBOON. Todos os direitos reservados.</p>
-  </footer>
+      <div class="menu-group">
+        <span class="menu-title">SERVIÇOS</span>
+        <button class="menu-link" data-page="assistentes">
+          <span>◈</span> Assistentes virtuais
+        </button>
+        <button class="menu-link" data-page="atendimento">
+          <span>▤</span> Atendimento inteligente
+        </button>
+        <button class="menu-link" data-page="automacao">
+          <span>⌘</span> Automações
+        </button>
+        <button class="menu-link" data-page="personalizadas">
+          <span>◇</span> Soluções personalizadas
+        </button>
+      </div>
+
+      <div class="menu-group">
+        <span class="menu-title">CONHEÇA</span>
+        <button class="menu-link" data-page="sobre">
+          <span>▣</span> Sobre a KAIBOON
+        </button>
+        <button class="menu-link" data-page="universo">
+          <span>▧</span> Universo do autor
+        </button>
+      </div>
+
+      <div class="menu-group">
+        <span class="menu-title">SUPORTE</span>
+        <button class="menu-link" data-page="contato">
+          <span>✉</span> Contato
+        </button>
+        <button class="menu-link" data-page="faq">
+          <span>?</span> Perguntas frequentes
+        </button>
+      </div>
+
+      <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        KAIBOON — Plataforma
+      </div>
+    </aside>
+
+    <main class="main-content">
+
+      <header class="topbar">
+        <div>
+          <span class="breadcrumb">KAIBOON / <span id="current-section">Início</span></span>
+        </div>
+        <a href="https://www.instagram.com/grimoire.zx/"
+           target="_blank" rel="noopener noreferrer"
+           class="header-button">
+          Fale conosco ↗
+        </a>
+      </header>
+
+      <div id="page-content">
+
+        <section class="page active" id="page-inicio">
+          <div class="hero">
+            <span class="tag">TECNOLOGIA • INTELIGÊNCIA ARTIFICIAL</span>
+            <h1>Ideias inteligentes.<br>
+              Soluções <span>extraordinárias.</span>
+            </h1>
+            <p>
+              Criamos assistentes virtuais e soluções inteligentes
+              para ajudar empresas a evoluir.
+            </p>
+            <button class="main-button" data-page="assistentes">
+              Explorar soluções →
+            </button>
+          </div>
+
+          <div class="section-heading">
+            <span>NOSSAS SOLUÇÕES</span>
+            <h2>Explore a KAIBOON</h2>
+            <p>Escolha uma categoria e conheça nossos serviços.</p>
+          </div>
+
+          <div class="service-grid">
+            <button class="service-card red" data-page="assistentes">
+              <span class="service-icon">◈</span>
+              <h3>Assistentes virtuais</h3>
+              <p>Assistentes com IA personalizados para empresas.</p>
+              <span class="card-link">Conhecer serviço →</span>
+            </button>
+
+            <button class="service-card orange" data-page="atendimento">
+              <span class="service-icon">▤</span>
+              <h3>Atendimento inteligente</h3>
+              <p>Uma experiência de atendimento mais organizada.</p>
+              <span class="card-link">Conhecer serviço →</span>
+            </button>
+
+            <button class="service-card red" data-page="automacao">
+              <span class="service-icon">⌘</span>
+              <h3>Automações</h3>
+              <p>Soluções para simplificar tarefas e processos.</p>
+              <span class="card-link">Conhecer serviço →</span>
+            </button>
+
+            <button class="service-card orange" data-page="personalizadas">
+              <span class="service-icon">◇</span>
+              <h3>Soluções personalizadas</h3>
+              <p>Projetos desenvolvidos conforme cada empresa.</p>
+              <span class="card-link">Conhecer serviço →</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="page" id="page-assistentes">
+          <span class="tag">SERVIÇOS / ASSISTENTES VIRTUAIS</span>
+          <h1>Assistentes virtuais <span>inteligentes.</span></h1>
+          <p>
+            Assistentes com inteligência artificial desenvolvidos
+            conforme as necessidades e a identidade de cada empresa.
+          </p>
+
+          <div class="info-panel">
+            <h2>Comunicação com a identidade da empresa</h2>
+            <p>
+              O assistente pode seguir o tom de voz, o vocabulário
+              e as regras de comunicação da marca.
+            </p>
+          </div>
+
+          <div class="section-heading">
+            <span>DESENVOLVIMENTO</span>
+            <h2>Como funciona</h2>
+          </div>
+
+          <div class="steps">
+            <article><b>01</b><h3>Conversa inicial</h3><p>Entendemos as necessidades da empresa.</p></article>
+            <article><b>02</b><h3>Planejamento</h3><p>Definimos funções e comunicação.</p></article>
+            <article><b>03</b><h3>Desenvolvimento</h3><p>Configuramos o assistente.</p></article>
+            <article><b>04</b><h3>Testes</h3><p>Verificamos respostas e funcionamento.</p></article>
+            <article><b>05</b><h3>Entrega</h3><p>Apresentamos a solução e sua utilização.</p></article>
+          </div>
+
+          <div class="info-panel">
+            <h2>Investimento</h2>
+            <p>Valor sob consulta, conforme as necessidades de cada projeto.</p>
+            <button class="main-button" data-page="contato">Solicitar um projeto →</button>
+          </div>
+        </section>
+
+        <section class="page" id="page-atendimento">
+          <span class="tag">SERVIÇOS</span>
+          <h1>Atendimento <span>inteligente.</span></h1>
+          <p>Uma proposta para tornar a comunicação entre empresas e clientes mais organizada.</p>
+          <div class="info-panel">
+            <h2>Conheça esta solução</h2>
+            <p>Detalhes e recursos serão apresentados nesta página durante o desenvolvimento.</p>
+          </div>
+        </section>
+
+        <section class="page" id="page-automacao">
+          <span class="tag">SERVIÇOS</span>
+          <h1>Automação <span>inteligente.</span></h1>
+          <p>Soluções para simplificar tarefas e processos empresariais.</p>
+          <div class="info-panel">
+            <h2>Conheça esta solução</h2>
+            <p>Detalhes e possibilidades serão apresentados nesta página.</p>
+          </div>
+        </section>
+
+        <section class="page" id="page-personalizadas">
+          <span class="tag">SERVIÇOS</span>
+          <h1>Soluções <span>personalizadas.</span></h1>
+          <p>Projetos planejados conforme os objetivos e as necessidades de cada empresa.</p>
+          <div class="info-panel">
+            <h2>Um projeto feito sob medida</h2>
+            <p>Entre em contato para conversar sobre sua ideia.</p>
+            <button class="main-button" data-page="contato">Conversar sobre um projeto →</button>
+          </div>
+        </section>
+
+        <section class="page" id="page-sobre">
+          <span class="tag">CONHEÇA</span>
+          <h1>Sobre a <span>KAIBOON.</span></h1>
+          <p>Nosso objetivo é aproximar empresas das possibilidades da inteligência artificial.</p>
+        </section>
+
+        <section class="page" id="page-universo">
+          <span class="tag">PROJETOS AUTORAIS</span>
+          <h1>Universo do <span>autor.</span></h1>
+          <div class="info-panel">
+            <h2>KUROGAMA</h2>
+            <p>Uma Jornada de Encontros, Mistérios e Descobertas.</p>
+            <a href="https://www.wattpad.com/user/grimoire_writer"
+               target="_blank" rel="noopener noreferrer">
+              Conhecer o perfil do autor →
+            </a>
+          </div>
+        </section>
+
+        <section class="page" id="page-contato">
+          <span class="tag">SUPORTE</span>
+          <h1>Vamos <span>conversar?</span></h1>
+          <p>Entre em contato para apresentar sua ideia ou conhecer nossas soluções.</p>
+          <a class="main-button"
+             href="https://www.instagram.com/grimoire.zx/"
+             target="_blank" rel="noopener noreferrer">
+            Instagram ↗
+          </a>
+        </section>
+
+        <section class="page" id="page-faq">
+          <span class="tag">SUPORTE</span>
+          <h1>Perguntas <span>frequentes.</span></h1>
+          <div class="info-panel">
+            <h2>Como solicitar um projeto?</h2>
+            <p>Entre em contato e explique o que sua empresa precisa.</p>
+          </div>
+        </section>
+
+      </div>
+
+      <footer class="site-footer">
+        <strong>KAIBOON.</strong>
+        <p>© 2026 KAIBOON. Todos os direitos reservados.</p>
+      </footer>
+
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
