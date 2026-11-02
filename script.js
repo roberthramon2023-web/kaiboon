@@ -1,7 +1,9 @@
 
 
+
 /* ==============================
    KAIBOON — IDENTIDADE VISUAL
+   PAINEL PRINCIPAL
    ============================== */
 
 :root {
@@ -15,13 +17,13 @@
   --muted: #777078;
   --border: #f0e2df;
   --shadow: 0 12px 35px rgba(100, 20, 35, 0.08);
+  --sidebar-width: 260px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -32,84 +34,140 @@ body {
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
-/* ==============================
-   BARRA SUPERIOR
-   ============================== */
+button {
+  font: inherit;
+  cursor: pointer;
+}
 
-.topbar {
-  width: 100%;
-  min-height: 78px;
-  padding: 16px 6%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
+/* ESTRUTURA */
+
+.app-layout {
+  min-height: 100vh;
+}
+
+/* MENU LATERAL */
+
+.sidebar {
+  position: fixed;
   top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  overflow-y: auto;
+  padding: 25px 16px;
+  background: var(--white);
+  border-right: 1px solid var(--border);
   z-index: 100;
 }
 
-.logo {
+.sidebar .logo {
+  display: block;
+  padding: 8px 12px 30px;
+  color: var(--red-dark);
   font-size: 27px;
   font-weight: 900;
   letter-spacing: 2px;
-  color: var(--red-dark);
 }
 
-.logo span {
+.sidebar .logo span {
   color: var(--orange);
 }
 
-.topbar nav {
+.sidebar nav {
   display: flex;
-  align-items: center;
-  gap: 30px;
+  flex-direction: column;
+  gap: 7px;
 }
 
-.topbar nav a {
+.sidebar nav button {
+  width: 100%;
+  padding: 13px 15px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
   color: var(--muted);
+  text-align: left;
   font-size: 14px;
   font-weight: 600;
   transition: 0.2s;
 }
 
-.topbar nav a:hover {
+.sidebar nav button:hover {
+  background: var(--soft);
   color: var(--red);
 }
 
-.header-button,
-.main-button {
-  display: inline-block;
-  padding: 12px 23px;
-  border-radius: 10px;
-  font-weight: 700;
-  transition: 0.25s;
+.sidebar nav button.active {
+  background: #ffe5e8;
+  color: var(--red);
+  font-weight: 800;
 }
 
-.header-button {
-  background: var(--red);
-  color: var(--white);
+/* CONTEÚDO PRINCIPAL */
+
+.main-content {
+  min-height: 100vh;
+  margin-left: var(--sidebar-width);
 }
 
-.header-button:hover,
-.main-button:hover {
-  background: var(--red-dark);
-  transform: translateY(-2px);
+/* BARRA SUPERIOR */
+
+.topbar {
+  min-height: 78px;
+  padding: 16px 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
 }
 
-/* ==============================
-   DESTAQUE PRINCIPAL
-   ============================== */
+.topbar h2 {
+  font-size: 18px;
+}
+
+.topbar p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* PÁGINAS */
+
+#page-content {
+  padding: 35px 4%;
+}
+
+.page {
+  display: none;
+  animation: pageEnter 0.25s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* DESTAQUE PRINCIPAL */
 
 .hero {
-  min-height: 570px;
-  padding: 65px 8%;
+  min-height: 390px;
+  padding: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -118,10 +176,13 @@ a {
   background:
     radial-gradient(circle at 85% 40%, #ffe0d3 0, transparent 32%),
     linear-gradient(120deg, #ffffff 55%, #fff5f0);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
 }
 
 .hero-content {
-  max-width: 610px;
+  max-width: 600px;
   position: relative;
   z-index: 2;
 }
@@ -129,7 +190,7 @@ a {
 .tag {
   display: inline-block;
   padding: 8px 14px;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   background: #ffe9e3;
   color: var(--red);
   border-radius: 30px;
@@ -139,10 +200,10 @@ a {
 }
 
 .hero h1 {
-  font-size: clamp(38px, 5vw, 61px);
+  margin-bottom: 20px;
+  font-size: clamp(34px, 4vw, 52px);
   line-height: 1.12;
-  letter-spacing: -2px;
-  margin-bottom: 22px;
+  letter-spacing: -1.5px;
 }
 
 .hero h1 span {
@@ -151,46 +212,63 @@ a {
 
 .hero-content p {
   max-width: 520px;
+  margin-bottom: 28px;
   color: var(--muted);
-  font-size: 17px;
-  margin-bottom: 30px;
+  font-size: 16px;
+  line-height: 1.8;
 }
 
 .main-button {
+  display: inline-block;
+  padding: 14px 25px;
   background: var(--orange);
-  color: #ffffff;
-  padding: 15px 26px;
+  color: var(--white);
+  border-radius: 10px;
+  font-weight: 800;
+  transition: 0.25s;
 }
+
+.main-button:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+}
+
+/* MASCOTE */
 
 .mascot-area {
-  flex: 1;
+  width: 280px;
+  min-height: 250px;
+  flex-shrink: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-width: 260px;
-}
-
-.mascot-image {
-  display: block;
-  width: 100%;
-  max-width: 390px;
-  max-height: 470px;
-  object-fit: contain;
-  filter: drop-shadow(0 18px 25px rgba(80, 20, 50, 0.13));
-}
-
-/* ==============================
-   SERVIÇOS
-   ============================== */
-
-.services {
-  padding: 85px 8%;
+  justify-content: center;
   background: var(--soft);
+  border: 2px dashed #efb2a9;
+  border-radius: 22px;
 }
+
+.mascot-placeholder {
+  padding: 25px;
+  text-align: center;
+  color: var(--red);
+}
+
+.mascot-placeholder span {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.mascot-placeholder p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* TÍTULOS */
 
 .section-heading {
+  margin: 45px 0 25px;
   text-align: center;
-  margin-bottom: 45px;
 }
 
 .section-heading > span {
@@ -202,23 +280,25 @@ a {
 
 .section-heading h2 {
   margin: 10px 0;
-  font-size: 35px;
   color: var(--red-dark);
+  font-size: 30px;
 }
 
 .section-heading p {
   color: var(--muted);
 }
 
+/* CARDS DE SERVIÇOS */
+
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
 .service-card {
+  min-height: 220px;
   padding: 28px 23px;
-  min-height: 250px;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 17px;
@@ -227,7 +307,7 @@ a {
 }
 
 .service-card:hover {
-  transform: translateY(-7px);
+  transform: translateY(-5px);
   border-color: #f3a49b;
   box-shadow: 0 18px 38px rgba(100, 20, 35, 0.13);
 }
@@ -239,13 +319,10 @@ a {
   place-items: center;
   margin-bottom: 20px;
   border-radius: 14px;
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.service-card.red .service-icon {
   background: #ffe5e8;
   color: var(--red);
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .service-card.orange .service-icon {
@@ -254,14 +331,14 @@ a {
 }
 
 .service-card h3 {
-  font-size: 18px;
   margin-bottom: 10px;
+  font-size: 18px;
 }
 
 .service-card p {
+  margin-bottom: 18px;
   color: var(--muted);
   font-size: 14px;
-  margin-bottom: 20px;
 }
 
 .service-card a {
@@ -274,56 +351,120 @@ a {
   color: var(--orange);
 }
 
-/* ==============================
-   SOBRE
-   ============================== */
+/* CONTEÚDO INTERNO */
 
-.about {
-  padding: 85px 8%;
-  text-align: center;
-  background: var(--white);
-}
-
-.about h2 {
+.page h1 {
+  margin-bottom: 18px;
   font-size: 34px;
   color: var(--red-dark);
-  margin-bottom: 15px;
 }
 
-.about p {
-  max-width: 650px;
-  margin: auto;
+.page h2 {
+  margin: 28px 0 14px;
+  font-size: 23px;
+}
+
+.page p {
   color: var(--muted);
-  font-size: 16px;
+  line-height: 1.8;
 }
 
-/* ==============================
-   CONTATO
-   ============================== */
+.page ul {
+  margin: 18px 0 18px 22px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.info-card {
+  margin-top: 22px;
+  padding: 25px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--red);
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+}
+
+/* ETAPAS */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.step-card {
+  padding: 22px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+}
+
+.step-card span {
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.step-card h3 {
+  margin: 10px 0;
+  font-size: 17px;
+}
+
+/* PREÇOS */
+
+.price-card {
+  margin-top: 25px;
+  padding: 25px;
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.price-card strong {
+  display: block;
+  margin-top: 10px;
+  color: var(--red);
+  font-size: 24px;
+}
+
+/* SOBRE E CONTATO */
+
+.about,
+.contact {
+  padding: 35px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+}
+
+.about h2,
+.contact h2 {
+  margin-bottom: 15px;
+  color: var(--red-dark);
+}
 
 .contact {
-  padding: 75px 8%;
-  text-align: center;
-  color: var(--white);
+  margin-top: 25px;
   background: linear-gradient(120deg, var(--red-dark), var(--red));
+  color: var(--white);
+  text-align: center;
 }
 
-.contact h2 {
-  font-size: 35px;
-  margin-bottom: 12px;
-}
-
+.contact h2,
 .contact p {
-  color: #ffe3e5;
-  margin-bottom: 25px;
+  color: var(--white);
 }
 
 .contact a {
   display: inline-block;
-  padding: 13px 24px;
-  border-radius: 10px;
+  margin-top: 20px;
+  padding: 13px 23px;
   background: var(--orange);
   color: var(--white);
+  border-radius: 10px;
   font-weight: 800;
   transition: 0.2s;
 }
@@ -333,66 +474,75 @@ a {
   transform: translateY(-2px);
 }
 
-/* ==============================
-   RODAPÉ
-   ============================== */
+/* RODAPÉ */
 
-footer {
-  padding: 28px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+.site-footer {
+  margin-left: var(--sidebar-width);
+  padding: 28px 4%;
   background: #25151a;
-  color: #ffffff;
-}
-
-footer .logo {
-  color: #ffffff;
-}
-
-footer p {
-  color: #c9b9bd;
+  color: var(--white);
   font-size: 13px;
 }
 
-/* ==============================
-   RESPONSIVIDADE
-   ============================== */
+/* TABLETS */
 
-@media (max-width: 1000px) {
-  .service-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+@media (max-width: 950px) {
+  :root {
+    --sidebar-width: 220px;
   }
 
   .hero {
-    padding-left: 6%;
-    padding-right: 6%;
+    padding: 35px;
+  }
+
+  .mascot-area {
+    width: 220px;
   }
 }
 
+/* CELULARES */
+
 @media (max-width: 700px) {
-  .topbar {
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 15px 5%;
-  }
-
-  .topbar nav {
+  .sidebar {
+    position: relative;
     width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 16px;
+    height: auto;
+    padding: 15px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
   }
 
-  .header-button {
-    display: none;
+  .sidebar .logo {
+    padding: 8px 10px 18px;
+  }
+
+  .sidebar nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sidebar nav button {
+    padding: 11px;
+    font-size: 12px;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  #page-content {
+    padding: 22px 16px;
+  }
+
+  .topbar {
+    min-height: 60px;
+    padding: 15px 20px;
   }
 
   .hero {
     flex-direction: column;
+    padding: 30px 20px;
     text-align: center;
-    padding: 55px 7%;
   }
 
   .hero-content p {
@@ -400,23 +550,22 @@ footer p {
     margin-right: auto;
   }
 
-  .mascot-image {
-    max-width: 290px;
-    max-height: 340px;
+  .mascot-area {
+    width: 100%;
+    min-height: 200px;
   }
 
-  .services,
-  .about,
-  .contact {
-    padding: 60px 6%;
-  }
-
-  .service-grid {
+  .service-grid,
+  .steps {
     grid-template-columns: 1fr;
   }
 
-  footer {
-    flex-direction: column;
+  .page h1 {
+    font-size: 28px;
+  }
+
+  .site-footer {
+    margin-left: 0;
     text-align: center;
   }
 }
